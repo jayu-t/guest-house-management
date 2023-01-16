@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a3202c6-f427-4eb8-ba3b-d9e5e9e31ec2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="5136b2d5-ad8a-4a84-92c4-8d69725c4b3b">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     a.`name` AS a_name,
+     a.`address` AS a_address
+FROM
+     `a` a]]>
+		</queryString>
+		<field name="a_name" class="java.lang.String"/>
+		<field name="a_address" class="java.lang.String"/>
+		<group name="a_name">
+			<groupExpression><![CDATA[$F{a_name}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     a.`name` AS a_name,
+     a.`address` AS a_address
+FROM
+     `a` a]]>
+	</queryString>
+	<field name="a_name" class="java.lang.String"/>
+	<field name="a_address" class="java.lang.String"/>
+	<variable name="a_address_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{a_address}]]></variableExpression>
+	</variable>
+	<variable name="a_name_1" class="java.lang.Integer" resetType="Column" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{a_name}]]></variableExpression>
+	</variable>
+	<group name="a_name">
+		<groupExpression><![CDATA[$F{a_name}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="59" forecolor="#FFFFFF" backcolor="#330033" uuid="0b133bfb-0b3b-4044-950b-d9610db943b0"/>
+				<staticText>
+					<reportElement x="0" y="0" width="249" height="58" forecolor="#FFFFFF" uuid="88467c5e-8590-4c0d-8d1c-7959150ef68d"/>
+					<textElement>
+						<font size="40"/>
+					</textElement>
+					<text><![CDATA[Demo Report]]></text>
+				</staticText>
+				<textField pattern="h.mm a">
+					<reportElement x="495" y="37" width="60" height="20" forecolor="#CCFF33" uuid="18d61479-017f-4b84-8058-7458dc575522"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="495" y="17" width="60" height="20" forecolor="#CCFF66" uuid="d4375e62-eb60-4cfc-a4ea-2da1282e19a3"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="461" y="17" width="34" height="20" forecolor="#FFFF33" uuid="d28edba9-800c-4945-9f44-9de3f574a226"/>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="461" y="38" width="34" height="20" forecolor="#FFFF33" uuid="4f80373d-3532-4778-9266-6cde5ae9eb2a"/>
+					<text><![CDATA[Time]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="35" forecolor="#FFFFFF" backcolor="#660066" uuid="194ab18d-b9e1-4ea0-a19d-91f090dc933c"/>
+				<staticText>
+					<reportElement x="198" y="0" width="177" height="35" forecolor="#FFFFFF" uuid="3180e2ff-54ca-4b66-a2ba-6dd9b8bfb0dc"/>
+					<textElement>
+						<font size="24"/>
+					</textElement>
+					<text><![CDATA[Testing Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" backcolor="#660033" uuid="8499b94e-23f8-4f7b-9234-3d53c3c3c8ab"/>
+				<staticText>
+					<reportElement x="200" y="0" width="100" height="20" forecolor="#99FF00" uuid="b6599bda-2481-45ff-9e11-4887d8e092e0"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<line>
+					<reportElement x="321" y="10" width="100" height="1" uuid="3f62241a-c533-4ec0-a45e-383a617792f7"/>
+				</line>
+				<staticText>
+					<reportElement x="325" y="0" width="100" height="20" forecolor="#99FF00" uuid="094d9164-9a0e-45c6-82be-579ba833daf4"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Address]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="27" backcolor="#003333" uuid="9004b71d-64f9-4916-964b-15c2c5e430d4"/>
+				<textField>
+					<reportElement x="200" y="0" width="120" height="24" forecolor="#CCCCFF" uuid="c2cb144b-66bf-4658-91ab-f51d05717e1a"/>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{a_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="0" width="136" height="24" forecolor="#CCCCFF" uuid="ed194891-6f44-46d4-9735-9c9779d98846"/>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{a_address}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="261" y="24" width="100" height="1" uuid="36828aa0-e379-4818-8601-484a0de27ca6"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

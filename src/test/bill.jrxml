@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1b640b2-4f96-484e-8846-d70359907ae1">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     bill.`bill_no` AS bill_bill_no,
+     bill.`gno` AS bill_gno,
+     bill.`rno` AS bill_rno,
+     bill.`bill_amt` AS bill_bill_amt,
+     guest.`gno` AS guest_gno,
+     guest.`name` AS guest_name,
+     guest.`address` AS guest_address,
+     guest.`contact` AS guest_contact,
+     guest.`dob` AS guest_dob,
+     guest.`gender` AS guest_gender,
+     guest.`rno` AS guest_rno,
+     guest.`check_in_date` AS guest_check_in_date,
+     guest.`check_out_date` AS guest_check_out_date,
+     room.`rno` AS room_rno,
+     room.`type` AS room_type,
+     room.`status` AS room_status,
+     room.`price` AS room_price
+FROM
+     `guest` guest INNER JOIN `bill` bill ON guest.`gno` = bill.`gno`
+     INNER JOIN `room` room ON bill.`rno` = room.`rno`
+     AND room.`rno` = guest.`rno`]]>
+	</queryString>
+	<field name="bill_bill_no" class="java.lang.Integer"/>
+	<field name="bill_gno" class="java.lang.Integer"/>
+	<field name="bill_rno" class="java.lang.Integer"/>
+	<field name="bill_bill_amt" class="java.lang.Double"/>
+	<field name="guest_gno" class="java.lang.Integer"/>
+	<field name="guest_name" class="java.lang.String"/>
+	<field name="guest_address" class="java.lang.String"/>
+	<field name="guest_contact" class="java.lang.String"/>
+	<field name="guest_dob" class="java.sql.Date"/>
+	<field name="guest_gender" class="java.lang.String"/>
+	<field name="guest_rno" class="java.lang.Integer"/>
+	<field name="guest_check_in_date" class="java.sql.Date"/>
+	<field name="guest_check_out_date" class="java.sql.Date"/>
+	<field name="room_rno" class="java.lang.Integer"/>
+	<field name="room_type" class="java.lang.String"/>
+	<field name="room_status" class="java.lang.String"/>
+	<field name="room_price" class="java.lang.Double"/>
+	<group name="bill_bill_no">
+		<groupExpression><![CDATA[$F{bill_bill_no}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#9DB1B8" uuid="21a10820-4b20-4d2c-b5b2-b071216c5ee5"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="479" height="23" forecolor="#FFFFFF" uuid="ea421dcf-e3d2-4162-a9a9-760c7a283032"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{bill_bill_no}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="120" y="10" width="435" height="93" uuid="42d1e3cc-07de-4d84-a0fc-2a03400432c6"/>
+				<textElement>
+					<font size="80" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tree Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="336" y="103" width="217" height="29" uuid="45cfd6e5-a749-4d88-acd9-0d326cb0e80d"/>
+				<textElement>
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tree SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="320" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="90" width="551" height="1" uuid="aabaf277-7e06-4e6d-b14b-e95ea20e4af0"/>
+			</line>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="0" width="132" height="20" forecolor="#000000" uuid="ec405dcb-60f2-4535-a2cf-07573c4e7ae0"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[bill_gno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="0" width="338" height="18" uuid="9287f026-b4c5-41cd-813e-39b8b5dc56dd"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bill_gno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="20" width="132" height="20" forecolor="#000000" uuid="f3e349c6-9a15-4a32-96f9-4f3266960d5f"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[bill_rno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="20" width="338" height="18" uuid="accca1a3-6e2e-4bca-b17f-bfbd9c7a9581"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bill_rno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="40" width="132" height="20" forecolor="#000000" uuid="2302d17f-df55-4cf5-ad0d-b4049e8cfda8"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[bill_bill_amt]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="40" width="338" height="18" uuid="e613b282-7e88-4b0b-9b1f-659fbb234c3a"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bill_bill_amt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="60" width="132" height="20" forecolor="#000000" uuid="f95ca68e-94b6-448a-a413-296cda7f4921"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_gno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="60" width="338" height="18" uuid="3fd7fb72-de12-4a65-ba2e-380f7cf3fcdc"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_gno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="80" width="132" height="20" forecolor="#000000" uuid="4611c7fa-2b7f-469d-99e3-8d99aa46040f"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_name]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="80" width="338" height="18" uuid="a54e9e16-991c-4234-8357-420f8997e4f8"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="100" width="132" height="20" forecolor="#000000" uuid="5bad01be-6153-4b79-93ae-bcbdf6cbdf7f"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_address]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="100" width="338" height="18" uuid="1861a776-4858-4b9f-bc1b-d8d06ebcaa34"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="120" width="132" height="20" forecolor="#000000" uuid="b11fb8f4-01b4-4ad5-a8a2-7b77dbda216d"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_contact]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="120" width="338" height="18" uuid="4a273340-711d-40c0-9b9c-d558e25013a7"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_contact}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="140" width="132" height="20" forecolor="#000000" uuid="4832c22a-fccf-4f16-ba83-8e062736b135"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_dob]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="140" width="338" height="18" uuid="0977a34e-e4fd-4e38-978e-f2b9d21f1409"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_dob}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="160" width="132" height="20" forecolor="#000000" uuid="117de637-5e02-49c5-a28d-4c4a14b87aae"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_gender]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="160" width="338" height="18" uuid="6c38b6d7-76c7-403f-996a-a7e385b5eddd"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_gender}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="180" width="132" height="20" forecolor="#000000" uuid="184f8d8b-c584-44be-8135-9f8be7f71843"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_rno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="180" width="338" height="18" uuid="51d47acc-1820-4c6f-9ef4-aeb57dcf74ad"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_rno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="200" width="132" height="20" forecolor="#000000" uuid="3fbfb0ff-aed5-47af-adda-406b789c4c7a"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_check_in_date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="200" width="338" height="18" uuid="944ccb23-3407-4e4b-be85-78a4ce064816"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_check_in_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="220" width="132" height="20" forecolor="#000000" uuid="c2719e62-fb3f-4165-b2de-2257310c3bd0"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[guest_check_out_date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="220" width="338" height="18" uuid="0db8315f-201e-4735-9fb7-4beebc5980f0"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_check_out_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="240" width="132" height="20" forecolor="#000000" uuid="2b34e8b1-7d46-4a45-a59e-e76ba216e33a"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[room_rno]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="240" width="338" height="18" uuid="79ea796f-0d6e-4314-b37d-61b397e51377"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{room_rno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="260" width="132" height="20" forecolor="#000000" uuid="5e12d893-d16b-49c7-b894-ec15b76a618d"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[room_type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="260" width="338" height="18" uuid="dec7945c-a248-49a6-8c61-b91df70d6855"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{room_type}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="280" width="132" height="20" forecolor="#000000" uuid="a98f1150-19fe-4a31-883e-ef9a10f71011"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[room_status]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="280" width="338" height="18" uuid="2124a94d-4202-4490-aabc-496a8b82afbe"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{room_status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="300" width="132" height="20" forecolor="#000000" uuid="9622b11c-94a1-45bb-9736-2a6664de584d"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[room_price]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="215" y="300" width="338" height="18" uuid="d3082b22-6bbe-4004-94f6-d15e43688ee2"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{room_price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f847802c-82a7-4407-a921-3177c6112854"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="29eddd12-3010-4487-9443-eccb9d53f389"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="85318f94-7ec9-4112-9841-53a9a077dc86"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

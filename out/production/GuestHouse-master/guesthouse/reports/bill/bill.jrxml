@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8f5b0a2d-0718-4373-843b-cb3ed559fed8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     bill.`bill_no` AS bill_bill_no,
+     bill.`gno` AS bill_gno,
+     bill.`rno` AS bill_rno,
+     bill.`bill_amt` AS bill_bill_amt,
+     guest.`name` AS guest_name,
+     guest.`address` AS guest_address,
+     guest.`contact` AS guest_contact,
+     guest.`gender` AS guest_gender,
+     guest.`check_in_date` AS guest_check_in_date,
+     guest.`check_out_date` AS guest_check_out_date,
+     room.`price` AS room_price,
+     room.`type` AS room_type
+FROM
+     `guest` guest INNER JOIN `bill` bill ON guest.`gno` = bill.`gno`
+     INNER JOIN `room` room ON bill.`rno` = room.`rno`
+     AND room.`rno` = guest.`rno`]]>
+	</queryString>
+	<field name="bill_bill_no" class="java.lang.Integer"/>
+	<field name="bill_gno" class="java.lang.Integer"/>
+	<field name="bill_rno" class="java.lang.Integer"/>
+	<field name="bill_bill_amt" class="java.lang.Double"/>
+	<field name="guest_name" class="java.lang.String"/>
+	<field name="guest_address" class="java.lang.String"/>
+	<field name="guest_contact" class="java.lang.String"/>
+	<field name="guest_gender" class="java.lang.String"/>
+	<field name="guest_check_in_date" class="java.lang.Object"/>
+	<field name="guest_check_out_date" class="java.lang.Object"/>
+	<field name="room_price" class="java.lang.Double"/>
+	<field name="room_type" class="java.lang.String"/>
+	<group name="bill_bill_no">
+		<groupExpression><![CDATA[$F{bill_bill_no}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="843" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="6c9c0b81-fcf9-4562-b484-feb7ecfe7cbe"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="616" y="0" width="72" height="15" uuid="f6d3f968-c83e-43a3-a8e7-dcadef842bf8"/>
+						<textFieldExpression><![CDATA[$F{room_type}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="699" y="0" width="72" height="15" uuid="25473cd3-b4b0-4762-b436-9e6d27b4ddc4"/>
+						<textFieldExpression><![CDATA[$F{room_price}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="515" y="0" width="72" height="15" uuid="5a514616-dbd2-4580-b6b8-db9f4a29ed6c"/>
+						<textFieldExpression><![CDATA[""+$F{guest_check_out_date}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="414" y="0" width="72" height="15" uuid="cfa0d0b2-91ba-4020-822a-e3ce7a9dd7e0"/>
+						<textFieldExpression><![CDATA[""+$F{guest_check_in_date}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="263" y="0" width="86" height="15" uuid="a9387477-bfcc-4f70-b49b-179fc754a66f"/>
+						<textFieldExpression><![CDATA[$F{guest_address}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="139" y="0" width="124" height="15" uuid="d5909f37-aeab-4305-9262-289a06ff87ba"/>
+						<textFieldExpression><![CDATA[$F{guest_name}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="779" y="0" width="54" height="15" uuid="afb5f4e3-a911-491f-b8dc-4c2bd1a8cb4b"/>
+						<textFieldExpression><![CDATA[$F{bill_bill_amt}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="349" y="0" width="46" height="15" uuid="98f43240-a8df-4ede-a4d5-6eb71ff594e9"/>
+						<textFieldExpression><![CDATA[$F{bill_rno}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" x="77" y="0" width="47" height="15" uuid="953189e5-f164-4297-83a4-558e7c5e6eb1"/>
+						<textFieldExpression><![CDATA[$F{bill_gno}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="22" y="0" width="46" height="15" uuid="d0f384f0-4060-406d-9375-08757c52c0b5"/>
+						<textElement>
+							<font fontName="Arial" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{bill_bill_no}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="272" height="62" uuid="05157ed8-4766-476b-9914-0ba4925b65a1"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Guest House]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="304" y="74" width="207" height="31" uuid="bae23a01-dfa9-45b7-bfd3-0b719fdfc7e1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="26" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Bill Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="27b409cb-2bc5-4b1f-9fdf-23188b7c1f85"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="56" y="0" width="53" height="15" forecolor="#736343" uuid="b3c4ad46-6303-430e-b148-d53e3d1c99c0"/>
+				<text><![CDATA[Guest ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="118" y="0" width="124" height="15" forecolor="#736343" uuid="04d891de-e3d8-42dc-b88a-01b930b88714"/>
+				<text><![CDATA[Guest Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="242" y="0" width="86" height="15" forecolor="#736343" uuid="628f6612-78e1-4d6c-a869-cfee2ff23477"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="393" y="0" width="83" height="15" forecolor="#736343" uuid="90aa69cb-dd00-49c6-80e5-109374dd63b2"/>
+				<text><![CDATA[Check In Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="494" y="0" width="90" height="15" forecolor="#736343" uuid="6f0854db-44c9-4789-9be6-a1c924251be6"/>
+				<text><![CDATA[Check Out Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="595" y="0" width="72" height="15" forecolor="#736343" uuid="0d1ade2a-734c-4ff9-8960-f9177a067326"/>
+				<text><![CDATA[Room type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1" y="0" width="46" height="15" forecolor="#736343" uuid="c16e79f6-7236-41c2-9880-44fc462a1acd"/>
+				<text><![CDATA[Bill ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="328" y="0" width="59" height="15" forecolor="#736343" uuid="c03e9341-a737-40ba-a890-542a6a67f12d"/>
+				<text><![CDATA[Room No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="758" y="0" width="54" height="15" forecolor="#736343" uuid="b873ab67-49eb-4b15-b5c3-0a710dd2099b"/>
+				<text><![CDATA[Bill Amt.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="678" y="0" width="72" height="15" forecolor="#736343" uuid="8b39fdd5-b132-4b16-a882-e3ef14730ab2"/>
+				<text><![CDATA[Room Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="4" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="0" uuid="56e2b659-a8bf-437c-ad6a-e31612c794b2"/>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="8d03cea0-2b7c-4873-b6d7-b4cc59ada4ba"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="4da5a62e-cb92-4ff9-a0ff-56d34b29b39f"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="f5e6c991-2ed7-4490-a08b-b6c0defc0bd2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="354ea30e-d500-4883-8a42-7a66c2d27af7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="1e3cd3bd-f63a-46dd-a119-b216b2e091e4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

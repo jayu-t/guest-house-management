@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="room" language="groovy" pageWidth="595" pageHeight="600" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="bd8339b6-afd1-412f-8eb7-ce8405e64786">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     room.`rno` AS room_rno,
+     room.`type` AS room_type,
+     room.`status` AS room_status,
+     room.`price` AS room_price
+FROM
+     `room` room]]>
+	</queryString>
+	<field name="room_rno" class="java.lang.Integer"/>
+	<field name="room_type" class="java.lang.String"/>
+	<field name="room_status" class="java.lang.String"/>
+	<field name="room_price" class="java.lang.Double"/>
+	<group name="room_rno">
+		<groupExpression><![CDATA[$F{room_rno}]]></groupExpression>
+		<groupHeader>
+			<band height="28">
+				<frame>
+					<reportElement mode="Opaque" x="2" y="0" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="b02b2a87-0919-4ed1-b035-5aa9d4cbc49a"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="146" y="0" width="99" height="18" forecolor="#FFFFFF" uuid="b0c21c8f-8603-4369-9142-b7cec5eb2587"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{room_type}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="292" y="0" width="99" height="18" forecolor="#FFFFFF" uuid="653ed5eb-be9e-4f2e-872e-51e34ea8525a"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{room_status}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="437" y="0" width="99" height="18" forecolor="#FFFFFF" uuid="cbbc6481-1c7d-42e0-bce5-b488db985ea0"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{room_price}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="a65163a8-6a6b-4c3c-ab25-96cb9574324b"/>
+						<textElement>
+							<font fontName="Times New Roman" size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{room_rno}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="557" height="95" backcolor="#000000" uuid="705c031b-d3d1-4614-9f7d-9581095916b1"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="157f1900-cfb8-4a73-9607-6774548bc4c9"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Guest House]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="4c3507b3-a83e-44b6-86a1-8d900b585c64"/>
+					<textElement textAlignment="Center">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Room Report]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="100" width="553" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e2e7665d-91d8-4170-8d12-796be2b9880d"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="404" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="1bab139e-604e-4df5-b844-cd3a80a275a1"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="148" y="8" width="116" height="18" forecolor="#000000" uuid="5be3e5ff-64d1-4554-a071-3115e38072e5"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Room Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="294" y="8" width="116" height="18" forecolor="#000000" uuid="990e24c5-5937-436f-8b07-2e1c7aaf5a5c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Room Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="437" y="8" width="116" height="18" forecolor="#000000" uuid="2fb63ab4-51d3-4273-8357-346d7d117e44"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Room Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="2" y="8" width="116" height="18" forecolor="#000000" uuid="e2324242-fcbd-49a3-81f1-35bbc4582f44"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Room No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="0" uuid="c0310cda-8d71-42bf-a032-be9cc30257f5"/>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="db157472-586d-45c3-b286-efb60fe2539c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="475b61c3-5ccf-41ae-ab8d-c343a4249f32"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="41855bdd-43b6-4293-9af3-73aead66405f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="e0d00416-86d1-4446-8482-1f8d37c70342"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="a0a2a7fb-269f-4e3e-9f86-63f523c5cd71"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

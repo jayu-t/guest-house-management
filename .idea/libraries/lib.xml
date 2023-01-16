@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/lib/jasperreports-javaflow-6.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-anim.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-parser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-ext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jcommon-1.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-logging-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-awt-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/castor-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-dom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-css.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/com-jaspersoft-jrx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jfreechart-1.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/com-jaspersoft-ireport.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jaxen-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/xml-apis-ext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jasperreports-6.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-svggen.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-svg-dom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/barbecue-1.5-beta1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-gvt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/png-encoder-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/xalan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jasperreports-fonts-6.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-bridge.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/com-jaspersoft-ireport-components.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/com-jaspersoft-ireport-jasperserver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jpa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-xml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/batik-script.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
